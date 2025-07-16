@@ -1,42 +1,81 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hey You!</title>
-  <script>
-    window.onload = function() {
-      alert("You’re the cutest thing I’ve ever seen 🩷");
-    };
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Special Message for You 💌</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #fff0f5;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe0f0, #f0eaff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: 'Segoe UI', sans-serif;
+      color: #5a189a;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
-      padding-top: 80px;
+      max-width: 500px;
     }
-    h1 {
-      color: #ff69b4;
+
+    .message {
+      font-size: 1.8em;
+      font-weight: bold;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+      min-height: 80px;
     }
-    p {
-      color: #555;
-      font-size: 18px;
+
+    .fade-out {
+      opacity: 0;
     }
-    .big-heart {
-      font-size: 100px;
-      margin-top: 40px;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>Hey Cutie! 💕</h1>
-  <p>Just wanted to say... You're adorable 🐰💖</p>
-  <div class="big-heart">💖</div>
+
+  <div class="container">
+    <div class="message" id="messageBox">Hi, happy working 💼✨</div>
+    <footer>Made with love 💖</footer>
+  </div>
+
+  <script>
+    const messages = [
+      "Hi, happy working 💼✨",
+      "Eat well and take care 🥗💖",
+      "I appreciate you so much! 🌟"
+    ];
+
+    let index = 0;
+    const messageBox = document.getElementById("messageBox");
+
+    setInterval(() => {
+      messageBox.classList.add("fade-out");
+
+      setTimeout(() => {
+        index = (index + 1) % messages.length;
+        messageBox.textContent = messages[index];
+        messageBox.classList.remove("fade-out");
+      }, 800);
+    }, 4000);
+  </script>
+
 </body>
 </html>
